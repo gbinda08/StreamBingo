@@ -396,12 +396,12 @@ function renderSavedList() {
     });
 
     item.querySelector('.del').addEventListener('click', () => {
-      confirm_(`Deletar "${name}"?`, 'Esta ação não pode ser desfeita.', () => {
+      confirm_(`Delete "${name}"?`, 'This action cannot be undone.', () => {
         const sv = getSaves();
         delete sv[name];
         localStorage.setItem('stream-bingo-saves', JSON.stringify(sv));
         renderSavedList();
-        toast('Deletado!');
+        toast('Deleted!');
       });
     });
 
