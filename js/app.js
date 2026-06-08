@@ -385,8 +385,8 @@ function renderSavedList() {
         <div class="saved-item-meta">${s.gridSize}×${s.gridSize} · ${s.savedAt || ''}</div>
       </div>
       <div class="saved-item-actions">
-        <button class="load-btn">Carregar</button>
-        <button class="del">Deletar</button>
+        <button class="load-btn">Load</button>
+        <button class="del">Delete</button>
       </div>`;
 
     item.querySelector('.load-btn').addEventListener('click', () => {
