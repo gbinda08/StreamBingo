@@ -149,7 +149,7 @@ function createCellEl(i) {
       readImageFile(file, base64 => {
         cells[i].img = base64;
         refreshCell(i);
-        toast('Imagem adicionada à célula!');
+        toast('Image added!');
       });
     }
   });
@@ -285,7 +285,7 @@ function renderImgPreview(dataUrl) {
     container.innerHTML = `
       <div class="img-preview-wrap" style="text-align:center;width:100%;">
         <img src="${dataUrl}" alt="Preview" />
-        <button class="remove-img" id="btn-remove-img" title="Remover imagem">×</button>
+        <button class="remove-img" id="btn-remove-img" title="Remove Image">×</button>
       </div>`;
     document.getElementById('btn-remove-img').onclick = () => {
       editingImageData = null;
@@ -329,7 +329,7 @@ function renderThemeGrid() {
     el.addEventListener('click', () => {
       applyTheme(t.id);
       renderThemeGrid();
-      toast(`Tema "${t.name}" aplicado!`);
+      toast(`Theme "${t.name}" applied!`);
     });
     grid.appendChild(el);
   });
@@ -392,7 +392,7 @@ function renderSavedList() {
     item.querySelector('.load-btn').addEventListener('click', () => {
       loadBingo(name, s);
       hideModal('save-load-modal');
-      toast(`Bingo "${name}" carregado!`);
+      toast(`Bingo "${name}" loaded!`);
     });
 
     item.querySelector('.del').addEventListener('click', () => {
@@ -593,7 +593,7 @@ document.addEventListener('paste', e => {
       readImageFile(item.getAsFile(), base64 => {
         editingImageData = base64;
         renderImgPreview(base64);
-        toast('Imagem colada!');
+        toast('Image pasted!');
       });
       break;
     }
@@ -618,7 +618,7 @@ document.getElementById('btn-clear-cell').addEventListener('click', () => {
   refreshCell(editingCellIndex);
   document.getElementById('bingo-grid').children[editingCellIndex].classList.remove('selected');
   hideModal('cell-edit-modal');
-  toast('Célula limpa!');
+  toast('Cell cleared!');
 });
 
 // ============================================================
@@ -626,10 +626,10 @@ document.getElementById('btn-clear-cell').addEventListener('click', () => {
 // ============================================================
 document.getElementById('btn-do-save').addEventListener('click', () => {
   const name = document.getElementById('save-name-input').value.trim();
-  if (!name) { toast('Digite um nome!', true); return; }
+  if (!name) { toast('Type a name!', true); return; }
   saveBingo(name);
   renderSavedList();
-  toast(`Bingo "${name}" salvo!`);
+  toast(`Bingo "${name}" saved!`);
 });
 
 document.getElementById('btn-close-save-load').addEventListener('click', () => hideModal('save-load-modal'));
