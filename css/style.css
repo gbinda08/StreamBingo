@@ -1,0 +1,822 @@
+/* ============================================================
+   BINGO DE STREAM — Estilos
+   ============================================================ */
+
+/* ===== VARIÁVEIS DE TEMA (padrão: Noturno Roxo) ===== */
+:root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --surface2: #0f3460;
+  --accent: #e94560;
+  --accent2: #f5a623;
+  --cell-bg: #1e2d4a;
+  --cell-selected: #533483;
+  --cell-selected-border: #a855f7;
+  --cell-border: #2a3f6a;
+  --text: #e8eaf6;
+  --text-muted: #8892b0;
+  --header-bg: #0f3460;
+  --btn-bg: #1e2d4a;
+  --btn-hover: #2a3f6a;
+  --border-color: #2a3f6a;
+  --success: #4ade80;
+  --overlay: rgba(10, 10, 26, 0.85);
+}
+
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Sarpanch', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+#app-header {
+  background: var(--header-bg);
+  border-bottom: 2px solid var(--accent);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.2);
+}
+
+#app-header h1 {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-right: 6px;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-sep {
+  flex: 1;
+}
+
+/* ===== BOTÕES DO HEADER ===== */
+.btn-icon {
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.btn-icon:hover {
+  background: var(--btn-hover);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.btn-icon:active {
+  transform: translateY(0);
+}
+
+.btn-icon svg {
+  flex-shrink: 0;
+}
+
+.btn-icon.danger:hover {
+  border-color: #ef4444;
+}
+
+.btn-icon.success-btn:hover {
+  border-color: var(--success);
+}
+
+/* ============================================================
+   LAYOUT PRINCIPAL
+   ============================================================ */
+#main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  gap: 20px;
+}
+
+/* ===== BARRA DE CONTROLES ===== */
+#controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
+#controls-bar label {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* ===== CONTROLE DE TAMANHO DA GRADE ===== */
+#grid-size-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#grid-size-control button {
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#grid-size-control button:hover {
+  background: var(--btn-hover);
+  border-color: var(--accent2);
+}
+
+#grid-size-display {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  min-width: 48px;
+  text-align: center;
+  color: var(--accent2);
+}
+
+/* ===== INPUT DE TÍTULO ===== */
+#title-input {
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 7px 12px;
+  color: var(--text);
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  width: 200px;
+  transition: border-color 0.15s;
+}
+
+#title-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#title-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   GRID DE BINGO
+   ============================================================ */
+#bingo-wrap {
+  width: 100%;
+  max-width: 900px;
+}
+
+#bingo-title-display {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-height: 2.4rem;
+  display: none;
+}
+
+#bingo-grid {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+/* ============================================================
+   CÉLULA
+   ============================================================ */
+.cell {
+  background: var(--cell-bg);
+  border: 2px solid var(--cell-border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  user-select: none;
+}
+
+.cell:hover {
+  border-color: var(--accent2);
+  transform: scale(1.01);
+  z-index: 2;
+}
+
+.cell.selected {
+  background: var(--cell-selected);
+  border-color: var(--cell-selected-border);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+}
+
+.cell.selected .cell-text {
+  opacity: 0.85;
+}
+
+/* Texto dentro da célula */
+.cell-text {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: clamp(10px, 2.2vh, 18px);
+  font-weight: 600;
+  text-align: center;
+  padding: 6px;
+  line-height: 1.2;
+  word-break: break-word;
+  z-index: 2;
+  position: relative;
+  pointer-events: none;
+  color: var(--text);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagem de fundo da célula */
+.cell-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Fundo semi-transparente no texto quando há imagem */
+.cell-img + .cell-text {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 4px;
+}
+
+/* Overlay da célula selecionada */
+.cell.selected::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(168, 85, 247, 0.18);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Célula em modo edição */
+.cell.edit-mode {
+  cursor: default;
+}
+
+.cell.edit-mode:hover {
+  transform: none;
+}
+
+/* ============================================================
+   MODAL BASE
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-box {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  width: min(480px, 95vw);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  transform: translateY(16px);
+  transition: transform 0.2s;
+}
+
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+
+.modal-box h2 {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  color: var(--accent2);
+}
+
+/* ============================================================
+   MODAL DE EDIÇÃO DE CÉLULA
+   ============================================================ */
+.modal-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.modal-row label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+textarea.cell-edit-text {
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1rem;
+  padding: 10px 12px;
+  resize: vertical;
+  min-height: 80px;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+textarea.cell-edit-text:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ===== ZONA DE DROP DE IMAGEM ===== */
+.img-drop-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.img-drop-zone:hover,
+.img-drop-zone.drag-over {
+  border-color: var(--accent);
+  background: rgba(233, 69, 96, 0.07);
+}
+
+.img-drop-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.img-drop-zone p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.img-drop-zone strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+/* Preview da imagem selecionada */
+.img-preview-wrap {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.img-preview-wrap img {
+  max-width: 100%;
+  max-height: 160px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: block;
+}
+
+.img-preview-wrap .remove-img {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--accent);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paste-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 6px;
+}
+
+/* ===== AÇÕES DO MODAL ===== */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+  justify-content: flex-end;
+}
+
+/* ===== BOTÕES ===== */
+.btn-primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: white;
+  border-radius: 8px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn-primary:hover {
+  background: #c73652;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 9px 18px;
+  cursor: pointer;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.15s;
+}
+
+.btn-secondary:hover {
+  background: var(--btn-hover);
+}
+
+.btn-danger-outline {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  border-radius: 8px;
+  padding: 9px 18px;
+  cursor: pointer;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.15s;
+  margin-right: auto;
+}
+
+.btn-danger-outline:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ============================================================
+   MODAL SALVAR / CARREGAR
+   ============================================================ */
+#save-load-modal .modal-box {
+  width: min(540px, 95vw);
+}
+
+.save-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.save-input-row input {
+  flex: 1;
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.95rem;
+  padding: 9px 12px;
+  transition: border-color 0.15s;
+}
+
+.save-input-row input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Lista de bingos salvos */
+.saved-list {
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.saved-item {
+  display: flex;
+  align-items: center;
+  background: var(--btn-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 14px;
+  gap: 10px;
+  transition: border-color 0.15s;
+}
+
+.saved-item:hover {
+  border-color: var(--accent2);
+}
+
+.saved-item-name {
+  flex: 1;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.saved-item-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.saved-item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.saved-item-actions button {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Sarpanch', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.saved-item-actions button:hover {
+  background: var(--btn-hover);
+  border-color: var(--accent);
+}
+
+.saved-item-actions button.del {
+  color: #ef4444;
+}
+
+.saved-item-actions button.del:hover {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   MODAL DE TEMA
+   ============================================================ */
+#theme-modal .modal-box {
+  width: min(440px, 95vw);
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.theme-item {
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.theme-item:hover {
+  transform: scale(1.02);
+}
+
+.theme-item.active {
+  border-color: var(--accent2) !important;
+}
+
+.theme-swatch {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.theme-swatch span {
+  flex: 1;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.theme-name {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   BANNER DE VITÓRIA (BINGO!)
+   ============================================================ */
+#win-banner {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#win-banner.show {
+  display: flex;
+}
+
+.win-box {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 20px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
+  animation: winPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.win-box h2 {
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.win-box p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin-top: 6px;
+}
+
+@keyframes winPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* ============================================================
+   MODAL DE CONFIRMAÇÃO
+   ============================================================ */
+#confirm-modal .modal-box {
+  width: min(380px, 95vw);
+}
+
+#confirm-modal .modal-box p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   SCROLLBAR CUSTOMIZADA
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ============================================================
+   TOAST (notificação)
+   ============================================================ */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--success);
+  color: #0a2a0a;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1000;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#toast.show  { transform: translateX(-50%) translateY(0); }
+#toast.error { background: var(--accent); color: white; }
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 600px) {
+  #app-header h1 { font-size: 1.3rem; }
+  .btn-icon span { display: none; }
+  #title-input { width: 130px; }
+}
