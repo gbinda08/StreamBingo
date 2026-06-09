@@ -272,7 +272,8 @@ body {
 .cell.selected {
   background: var(--cell-selected);
   border-color: var(--cell-selected-border);
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
+  filter: brightness(1.15) saturate(1.4);
 }
 
 .cell.selected .cell-text {
@@ -316,7 +317,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(168, 85, 247, 0.18);
+  background: rgba(168, 85, 247, 0.35);
   z-index: 3;
   pointer-events: none;
 }
