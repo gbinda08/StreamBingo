@@ -298,7 +298,23 @@ function renderImgPreview(dataUrl) {
 
 function readImageFile(file, cb) {
   const reader = new FileReader();
-  reader.onload = e => cb(e.target.result);
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const MAX = 400;
+      let { width, height } = img;
+      if (width > MAX || height > MAX) {
+        if (width > height) { height = Math.round(height * MAX / width); width = MAX; }
+        else                { width  = Math.round(width  * MAX / height); height = MAX; }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width  = width;
+      canvas.height = height;
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+      cb(canvas.toDataURL('image/jpeg', 0.7));
+    };
+    img.src = e.target.result;
+  };
   reader.readAsDataURL(file);
 }
 
@@ -350,7 +366,14 @@ function saveBingo(name) {
     cells: cells.map(c => ({ text: c.text, img: c.img })),
     savedAt: new Date().toLocaleString('pt-BR'),
   };
-  localStorage.setItem('stream-bingo-saves', JSON.stringify(saves));
+  try {
+    localStorage.setItem('stream-bingo-saves', JSON.stringify(saves));
+    return true;
+  } catch (e) {
+    // QuotaExceededError — storage full even after compression
+    toast('No space. Try deleting old bingos or using fewer images.', true);
+    return false;
+  }
 }
 
 function loadBingo(name, data) {
