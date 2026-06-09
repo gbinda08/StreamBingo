@@ -179,12 +179,13 @@ function renderCellContent(div, i) {
     div.appendChild(img);
   }
 
-  const textDiv = document.createElement('div');
-  textDiv.className = 'cell-text';
-  textDiv.textContent = c.text;
-  div.appendChild(textDiv);
+  if (c.text) {
+    const textDiv = document.createElement('div');
+    textDiv.className = 'cell-text';
+    textDiv.textContent = c.text;
+    div.appendChild(textDiv);
+  }
 }
-
 function refreshCell(i) {
   const grid = document.getElementById('bingo-grid');
   const div = grid.children[i];
