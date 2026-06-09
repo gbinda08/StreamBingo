@@ -62,6 +62,17 @@ const THEMES = [
     swatches: ['#f0f2f5', '#fde8ec', '#e94560', '#f5a623'],
   },
   {
+        name: 'Dark Minimalist', id: 'dark-minimal',
+    vars: {
+      '--bg': '#111111', '--surface': '#1c1c1c', '--surface2': '#242424',
+      '--accent': '#e94560', '--accent2': '#f5a623',
+      '--cell-bg': '#1c1c1c', '--cell-selected': '#2e1a1a', '--cell-selected-border': '#e94560',
+      '--cell-border': '#2e2e2e', '--text': '#eeeeee', '--text-muted': '#777777',
+      '--header-bg': '#1c1c1c', '--btn-bg': '#242424', '--btn-hover': '#2e2e2e', '--border-color': '#2e2e2e',
+    },
+    swatches: ['#111111', '#2e1a1a', '#e94560', '#f5a623'],
+  },
+  {
     name: 'Neon Purple', id: 'neon-purple',
     vars: {
       '--bg': '#0e0014', '--surface': '#160020', '--surface2': '#200030',
