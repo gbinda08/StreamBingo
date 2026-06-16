@@ -3,6 +3,167 @@
    ============================================================ */
 
 // ============================================================
+//  IDIOMA / TRADUÇÕES
+// ============================================================
+const I18N = {
+  en: {
+    pageTitle: 'Stream Bingo',
+    headerTitle: 'Stream Bingo',
+    langLabel: 'PT-BR',
+    langToggleTitle: 'Switch language',
+    editLabel: 'Edit',
+    playLabel: 'Play',
+    editModeTitle: 'Toggle edit mode',
+    shuffleLabel: 'Randomize',
+    shuffleTitle: 'Randomize cells',
+    clearLabel: 'Clear',
+    clearTitle: 'Clear selections',
+    saveLabel: 'Save',
+    saveLoadTitle: 'Save / Load',
+    themeLabel: 'Theme',
+    themeTitle: 'Themes',
+    labelTitle: 'Title:',
+    titlePlaceholder: 'Bingo Name',
+    labelGrid: 'Grid:',
+    decreaseGridTitle: 'Decrease Grid',
+    increaseGridTitle: 'Increase Grid',
+    footerPrivacy: 'Privacy',
+    footerCredit: 'Created by Binda',
+    modalEditTitle: 'Edit',
+    labelText: 'Text',
+    textPlaceholder: 'Enter text...',
+    labelImage: 'Image (paste Ctrl+V, drag or click)',
+    dropZoneTitle: 'Drag image here',
+    dropZoneSubtitle: 'or click to select a file',
+    pasteHint: 'Hint: Copy an image and press Ctrl+V here!',
+    btnClearCell: 'Clear',
+    btnCancel: 'Cancel',
+    btnSave: 'Save',
+    modalSaveLoadTitle: 'Save / Load Bingo',
+    saveNamePlaceholder: 'Bingo Name (e.g., Nintendo Direct June)',
+    labelSavedBingos: 'Saved Bingos',
+    btnClose: 'Close',
+    modalThemeTitle: 'Choose Theme',
+    confirmTitle: 'Confirm',
+    btnConfirm: 'Confirm',
+    winTitle: 'BINGO!',
+    winSubtitle: 'You completed a line!',
+    removeImageTitle: 'Remove Image',
+    loadBtn: 'Load',
+    deleteBtn: 'Delete',
+    emptyState: 'No bingo saved yet.',
+    toastImageAdded: 'Image added!',
+    toastImagePasted: 'Image pasted!',
+    toastCellSaved: 'Cell saved!',
+    toastCellCleared: 'Cell cleared!',
+    toastTypeAName: 'Type a name!',
+    toastBingoSaved: name => `Bingo "${name}" saved!`,
+    toastBingoLoaded: name => `Bingo "${name}" loaded!`,
+    toastDeleted: 'Deleted!',
+    toastNoSpace: 'No space! Try deleting old bingos or using fewer images.',
+    toastSelectionsCleared: 'Selections cleared!',
+    toastBingoRandomized: 'Bingo randomized!',
+    toastThemeApplied: name => `Theme "${name}" applied!`,
+    confirmRandomizeTitle: 'Randomize?',
+    confirmRandomizeMsg: 'The content will be kept, only the order will change.',
+    confirmClearTitle: 'Clear selections?',
+    confirmClearMsg: 'All marked cells will be unmarked. The content will be kept.',
+    confirmDecreaseTitle: 'Decrease grid?',
+    confirmDecreaseMsg: size => `The grid will decrease to ${size}×${size}. Extra cells will be removed.`,
+    confirmDeleteTitle: name => `Delete "${name}"?`,
+    confirmDeleteMsg: 'This action cannot be undone.',
+    themeNames: {
+      'dark-purple': 'Dark Purple',
+      'green-gamer': 'Green',
+      'nintendo': 'Red',
+      'playstation': 'Blue',
+      'light': 'Light Minimalist',
+      'dark-minimal': 'Dark Minimalist',
+      'neon-purple': 'Neon Purple',
+    },
+  },
+  pt: {
+    pageTitle: 'Bingo de Stream',
+    headerTitle: 'Bingo de Stream',
+    langLabel: 'EN',
+    langToggleTitle: 'Mudar idioma',
+    editLabel: 'Editar',
+    playLabel: 'Jogar',
+    editModeTitle: 'Alternar modo edição',
+    shuffleLabel: 'Aleatorizar',
+    shuffleTitle: 'Aleatorizar células',
+    clearLabel: 'Limpar',
+    clearTitle: 'Limpar seleções',
+    saveLabel: 'Salvar',
+    saveLoadTitle: 'Salvar / Carregar',
+    themeLabel: 'Tema',
+    themeTitle: 'Temas',
+    labelTitle: 'Título:',
+    titlePlaceholder: 'Nome do Bingo',
+    labelGrid: 'Grade:',
+    decreaseGridTitle: 'Diminuir grade',
+    increaseGridTitle: 'Aumentar grade',
+    footerPrivacy: 'Privacidade',
+    footerCredit: 'Criado por Binda',
+    modalEditTitle: 'Editar Célula',
+    labelText: 'Texto',
+    textPlaceholder: 'Ex: Nintendo anuncia novo Mario...',
+    labelImage: 'Imagem (cole Ctrl+V, arraste ou clique)',
+    dropZoneTitle: 'Soltar imagem aqui',
+    dropZoneSubtitle: 'ou clique para selecionar arquivo',
+    pasteHint: 'Dica: copie uma imagem e pressione Ctrl+V aqui!',
+    btnClearCell: 'Limpar célula',
+    btnCancel: 'Cancelar',
+    btnSave: 'Salvar',
+    modalSaveLoadTitle: 'Salvar / Carregar Bingo',
+    saveNamePlaceholder: 'Nome do bingo (ex: Nintendo Direct Junho)',
+    labelSavedBingos: 'Bingos Salvos',
+    btnClose: 'Fechar',
+    modalThemeTitle: 'Escolher Tema',
+    confirmTitle: 'Confirmar',
+    btnConfirm: 'Confirmar',
+    winTitle: 'BINGO!',
+    winSubtitle: 'Você completou uma linha!',
+    removeImageTitle: 'Remover imagem',
+    loadBtn: 'Carregar',
+    deleteBtn: 'Deletar',
+    emptyState: 'Nenhum bingo salvo ainda.',
+    toastImageAdded: 'Imagem adicionada à célula!',
+    toastImagePasted: 'Imagem colada!',
+    toastCellSaved: 'Célula salva!',
+    toastCellCleared: 'Célula limpa!',
+    toastTypeAName: 'Digite um nome!',
+    toastBingoSaved: name => `Bingo "${name}" salvo!`,
+    toastBingoLoaded: name => `Bingo "${name}" carregado!`,
+    toastDeleted: 'Deletado!',
+    toastNoSpace: 'Sem espaço! Tente deletar bingos antigos ou usar menos imagens.',
+    toastSelectionsCleared: 'Seleções limpas!',
+    toastBingoRandomized: 'Bingo aleatorizado!',
+    toastThemeApplied: name => `Tema "${name}" aplicado!`,
+    confirmRandomizeTitle: 'Aleatorizar ordem das células?',
+    confirmRandomizeMsg: 'O conteúdo será mantido, apenas a ordem vai mudar.',
+    confirmClearTitle: 'Limpar seleções?',
+    confirmClearMsg: 'Todas as células marcadas serão desmarcadas. O conteúdo será mantido.',
+    confirmDecreaseTitle: 'Diminuir grade?',
+    confirmDecreaseMsg: size => `A grade vai diminuir para ${size}×${size}. Células extras serão removidas.`,
+    confirmDeleteTitle: name => `Deletar "${name}"?`,
+    confirmDeleteMsg: 'Esta ação não pode ser desfeita.',
+    themeNames: {
+      'dark-purple': 'Noturno Roxo',
+      'green-gamer': 'Verde Gamer',
+      'nintendo': 'Nintendo Red',
+      'playstation': 'PlayStation Blue',
+      'light': 'Claro Minimalista',
+      'dark-minimal': 'Escuro Minimalista',
+      'neon-purple': 'Roxo Neon',
+    },
+  },
+};
+
+let currentLang = 'en';
+function i18n(key) { return I18N[currentLang][key]; }
+
+// ============================================================
 //  TEMAS
 // ============================================================
 const THEMES = [
@@ -116,9 +277,78 @@ function startup() {
     applyTheme('dark-purple');
   }
 
+  const savedLang = localStorage.getItem('stream-bingo-lang');
+  applyLang(savedLang === 'pt' ? 'pt' : 'en');
+
   initCells(gridSize);
   buildGrid();
   updateTitleDisplay();
+}
+
+// ============================================================
+//  APLICAR IDIOMA
+// ============================================================
+function applyLang(lang) {
+  currentLang = lang;
+  const dict = I18N[lang];
+
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+  document.getElementById('page-title').textContent = dict.pageTitle;
+  document.getElementById('header-title').textContent = document.getElementById('title-input').value || dict.headerTitle;
+  document.getElementById('btn-lang-label').textContent = dict.langLabel;
+  document.getElementById('btn-lang-toggle').title = dict.langToggleTitle;
+
+  document.getElementById('btn-edit-label').textContent = editMode ? dict.playLabel : dict.editLabel;
+  document.getElementById('btn-edit-mode').title = dict.editModeTitle;
+  document.getElementById('btn-shuffle-label').textContent = dict.shuffleLabel;
+  document.getElementById('btn-shuffle').title = dict.shuffleTitle;
+  document.getElementById('btn-clear-label').textContent = dict.clearLabel;
+  document.getElementById('btn-clear').title = dict.clearTitle;
+  document.getElementById('btn-save-label').textContent = dict.saveLabel;
+  document.getElementById('btn-save-load').title = dict.saveLoadTitle;
+  document.getElementById('btn-theme-label').textContent = dict.themeLabel;
+  document.getElementById('btn-theme').title = dict.themeTitle;
+
+  document.getElementById('label-title').textContent = dict.labelTitle;
+  document.getElementById('title-input').placeholder = dict.titlePlaceholder;
+  document.getElementById('label-grid').textContent = dict.labelGrid;
+  document.getElementById('btn-size-dec').title = dict.decreaseGridTitle;
+  document.getElementById('btn-size-inc').title = dict.increaseGridTitle;
+
+  document.getElementById('footer-privacy-link').textContent = dict.footerPrivacy;
+  document.getElementById('footer-credit').textContent = dict.footerCredit;
+
+  document.getElementById('modal-edit-title').textContent = dict.modalEditTitle;
+  document.getElementById('label-text').textContent = dict.labelText;
+  document.getElementById('cell-edit-text').placeholder = dict.textPlaceholder;
+  document.getElementById('label-image').textContent = dict.labelImage;
+  document.getElementById('drop-zone-title').textContent = dict.dropZoneTitle;
+  document.getElementById('drop-zone-subtitle').textContent = dict.dropZoneSubtitle;
+  document.getElementById('paste-hint').textContent = dict.pasteHint;
+  document.getElementById('btn-clear-cell').textContent = dict.btnClearCell;
+  document.getElementById('btn-cancel-edit').textContent = dict.btnCancel;
+  document.getElementById('btn-save-cell').textContent = dict.btnSave;
+
+  document.getElementById('modal-saveload-title').textContent = dict.modalSaveLoadTitle;
+  document.getElementById('save-name-input').placeholder = dict.saveNamePlaceholder;
+  document.getElementById('btn-do-save').textContent = dict.btnSave;
+  document.getElementById('label-saved-bingos').textContent = dict.labelSavedBingos;
+  document.getElementById('btn-close-save-load').textContent = dict.btnClose;
+
+  document.getElementById('modal-theme-title').textContent = dict.modalThemeTitle;
+  document.getElementById('btn-close-theme').textContent = dict.btnClose;
+
+  document.getElementById('btn-confirm-no').textContent = dict.btnCancel;
+  document.getElementById('btn-confirm-yes').textContent = dict.btnConfirm;
+
+  document.getElementById('win-title').textContent = dict.winTitle;
+  document.getElementById('win-subtitle').textContent = dict.winSubtitle;
+
+  // Re-render listas dinâmicas que dependem do idioma
+  renderThemeGrid();
+  renderSavedList();
+
+  localStorage.setItem('stream-bingo-lang', lang);
 }
 
 // ============================================================
@@ -160,7 +390,7 @@ function createCellEl(i) {
       readImageFile(file, base64 => {
         cells[i].img = base64;
         refreshCell(i);
-        toast('Image added!');
+        toast(i18n('toastImageAdded'));
       });
     }
   });
@@ -268,12 +498,12 @@ function setEditMode(on) {
 
   if (on) {
     grid.querySelectorAll('.cell').forEach(c => c.classList.add('edit-mode'));
-    label.textContent = 'Play';
+    label.textContent = i18n('playLabel');
     btn.style.borderColor = 'var(--accent2)';
     btn.style.color = 'var(--accent2)';
   } else {
     grid.querySelectorAll('.cell').forEach(c => c.classList.remove('edit-mode'));
-    label.textContent = 'Edit';
+    label.textContent = i18n('editLabel');
     btn.style.borderColor = '';
     btn.style.color = '';
   }
@@ -297,7 +527,7 @@ function renderImgPreview(dataUrl) {
     container.innerHTML = `
       <div class="img-preview-wrap" style="text-align:center;width:100%;">
         <img src="${dataUrl}" alt="Preview" />
-        <button class="remove-img" id="btn-remove-img" title="Remove Image">×</button>
+        <button class="remove-img" id="btn-remove-img" title="${i18n('removeImageTitle')}">×</button>
       </div>`;
     document.getElementById('btn-remove-img').onclick = () => {
       editingImageData = null;
@@ -345,6 +575,7 @@ function renderThemeGrid() {
   const grid = document.getElementById('theme-grid');
   grid.innerHTML = '';
   THEMES.forEach(t => {
+    const themeName = I18N[currentLang].themeNames[t.id] || t.name;
     const el = document.createElement('div');
     el.className = 'theme-item' + (t.id === currentThemeId ? ' active' : '');
     el.style.background = t.vars['--surface'];
@@ -353,11 +584,11 @@ function renderThemeGrid() {
       <div class="theme-swatch">
         ${t.swatches.map(s => `<span style="background:${s}"></span>`).join('')}
       </div>
-      <div class="theme-name" style="color:${t.vars['--text']}">${t.name}</div>`;
+      <div class="theme-name" style="color:${t.vars['--text']}">${themeName}</div>`;
     el.addEventListener('click', () => {
       applyTheme(t.id);
       renderThemeGrid();
-      toast(`Theme "${t.name}" applied!`);
+      toast(i18n('toastThemeApplied')(themeName));
     });
     grid.appendChild(el);
   });
@@ -376,14 +607,14 @@ function saveBingo(name) {
   saves[name] = {
     gridSize,
     cells: cells.map(c => ({ text: c.text, img: c.img })),
-    savedAt: new Date().toLocaleString('pt-BR'),
+    savedAt: new Date().toLocaleString(currentLang === 'pt' ? 'pt-BR' : 'en-US'),
   };
   try {
     localStorage.setItem('stream-bingo-saves', JSON.stringify(saves));
     return true;
   } catch (e) {
     // QuotaExceededError — storage full even after compression
-    toast('No space. Try deleting old bingos or using fewer images.', true);
+    toast(i18n('toastNoSpace'), true);
     return false;
   }
 }
@@ -405,7 +636,7 @@ function renderSavedList() {
   const keys = Object.keys(saves);
 
   if (!keys.length) {
-    container.innerHTML = '<div class="empty-state">No bingo saved yet.</div>';
+    container.innerHTML = `<div class="empty-state">${i18n('emptyState')}</div>`;
     return;
   }
 
@@ -420,23 +651,23 @@ function renderSavedList() {
         <div class="saved-item-meta">${s.gridSize}×${s.gridSize} · ${s.savedAt || ''}</div>
       </div>
       <div class="saved-item-actions">
-        <button class="load-btn">Load</button>
-        <button class="del">Delete</button>
+        <button class="load-btn">${i18n('loadBtn')}</button>
+        <button class="del">${i18n('deleteBtn')}</button>
       </div>`;
 
     item.querySelector('.load-btn').addEventListener('click', () => {
       loadBingo(name, s);
       hideModal('save-load-modal');
-      toast(`Bingo "${name}" loaded!`);
+      toast(i18n('toastBingoLoaded')(name));
     });
 
     item.querySelector('.del').addEventListener('click', () => {
-      confirm_(`Delete "${name}"?`, 'This action cannot be undone.', () => {
+      confirm_(i18n('confirmDeleteTitle')(name), i18n('confirmDeleteMsg'), () => {
         const sv = getSaves();
         delete sv[name];
         localStorage.setItem('stream-bingo-saves', JSON.stringify(sv));
         renderSavedList();
-        toast('Deleted!');
+        toast(i18n('toastDeleted'));
       });
     });
 
@@ -518,27 +749,31 @@ function escHtml(s) {
 // ============================================================
 //  EVENTOS — Botões do Header
 // ============================================================
+document.getElementById('btn-lang-toggle').addEventListener('click', () => {
+  applyLang(currentLang === 'en' ? 'pt' : 'en');
+});
+
 document.getElementById('btn-edit-mode').addEventListener('click', () => {
   setEditMode(!editMode);
 });
 
 document.getElementById('btn-shuffle').addEventListener('click', () => {
-  confirm_('Randomize?', 'The content will be kept, only the order will change.', () => {
+  confirm_(i18n('confirmRandomizeTitle'), i18n('confirmRandomizeMsg'), () => {
     const nonEmpty = cells.filter(c => c.text || c.img);
     const empty = cells.filter(c => !c.text && !c.img);
     shuffle(nonEmpty);
     cells = [...nonEmpty, ...empty];
     buildGrid();
     hadBingo = false;
-    toast('Bingo randomized!');
+    toast(i18n('toastBingoRandomized'));
   });
 });
 
 document.getElementById('btn-clear').addEventListener('click', () => {
-  confirm_('Clear selections?', 'All marked cells will be unmarked. The content will be kept.', () => {
+  confirm_(i18n('confirmClearTitle'), i18n('confirmClearMsg'), () => {
     document.querySelectorAll('#bingo-grid .cell.selected').forEach(c => c.classList.remove('selected'));
     hadBingo = false;
-    toast('Selections cleared!');
+    toast(i18n('toastSelectionsCleared'));
   });
 });
 
@@ -567,8 +802,8 @@ document.getElementById('btn-size-inc').addEventListener('click', () => {
 document.getElementById('btn-size-dec').addEventListener('click', () => {
   if (gridSize <= 2) return;
   confirm_(
-    'Decrease grid?',
-    `The grid will decrease to ${gridSize - 1}×${gridSize - 1}. Extra cells will be removed.`,
+    i18n('confirmDecreaseTitle'),
+    i18n('confirmDecreaseMsg')(gridSize - 1),
     () => {
       gridSize--;
       initCells(gridSize);
@@ -583,7 +818,7 @@ document.getElementById('btn-size-dec').addEventListener('click', () => {
 // ============================================================
 document.getElementById('title-input').addEventListener('input', e => {
   updateTitleDisplay();
-  document.getElementById('header-title').textContent = e.target.value || '🎯 Bingo de Stream';
+  document.getElementById('header-title').textContent = e.target.value || i18n('headerTitle');
 });
 
 // ============================================================
@@ -628,7 +863,7 @@ document.addEventListener('paste', e => {
       readImageFile(item.getAsFile(), base64 => {
         editingImageData = base64;
         renderImgPreview(base64);
-        toast('Image pasted!');
+        toast(i18n('toastImagePasted'));
       });
       break;
     }
@@ -641,7 +876,7 @@ document.getElementById('btn-save-cell').addEventListener('click', () => {
   cells[editingCellIndex].img  = editingImageData;
   refreshCell(editingCellIndex);
   hideModal('cell-edit-modal');
-  toast('Célula salva!');
+  toast(i18n('toastCellSaved'));
 });
 
 // Cancelar edição
@@ -653,7 +888,7 @@ document.getElementById('btn-clear-cell').addEventListener('click', () => {
   refreshCell(editingCellIndex);
   document.getElementById('bingo-grid').children[editingCellIndex].classList.remove('selected');
   hideModal('cell-edit-modal');
-  toast('Cell cleared!');
+  toast(i18n('toastCellCleared'));
 });
 
 // ============================================================
@@ -661,10 +896,12 @@ document.getElementById('btn-clear-cell').addEventListener('click', () => {
 // ============================================================
 document.getElementById('btn-do-save').addEventListener('click', () => {
   const name = document.getElementById('save-name-input').value.trim();
-  if (!name) { toast('Type a name!', true); return; }
-  saveBingo(name);
-  renderSavedList();
-  toast(`Bingo "${name}" saved!`);
+  if (!name) { toast(i18n('toastTypeAName'), true); return; }
+  const ok = saveBingo(name);
+  if (ok) {
+    renderSavedList();
+    toast(i18n('toastBingoSaved')(name));
+  }
 });
 
 document.getElementById('btn-close-save-load').addEventListener('click', () => hideModal('save-load-modal'));
