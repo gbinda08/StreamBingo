@@ -10,8 +10,8 @@
   --accent: #e94560;
   --accent2: #f5a623;
   --cell-bg: #1e2d4a;
-  --cell-selected: #4b0505;
-  --cell-selected-border: #f75555;
+  --cell-selected: #533483;
+  --cell-selected-border: #a855f7;
   --cell-border: #2a3f6a;
   --text: #e8eaf6;
   --text-muted: #8892b0;
@@ -272,8 +272,7 @@ body {
 .cell.selected {
   background: var(--cell-selected);
   border-color: var(--cell-selected-border);
-  box-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
-  filter: brightness(1.15) saturate(1.4);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
 }
 
 .cell.selected .cell-text {
@@ -317,7 +316,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(168, 85, 247, 0.35);
+  background: rgba(168, 85, 247, 0.18);
   z-index: 3;
   pointer-events: none;
 }
@@ -824,7 +823,7 @@ textarea.cell-edit-text:focus {
   padding: 24px 16px 32px;
   text-align: center;
 }
- 
+
 #app-footer a {
   color: var(--text-muted);
   font-family: 'Sarpanch', sans-serif;
@@ -832,12 +831,12 @@ textarea.cell-edit-text:focus {
   text-decoration: none;
   transition: color 0.15s;
 }
- 
+
 #app-footer a:hover {
   color: var(--accent2);
   text-decoration: underline;
 }
- 
+
 #app-footer .footer-credit {
   color: var(--text-muted);
   font-size: 0.78rem;
