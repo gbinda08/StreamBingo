@@ -814,6 +814,37 @@ textarea.cell-edit-text:focus {
 #toast.error { background: var(--accent); color: white; }
 
 /* ============================================================
+   RODAPÉ
+   ============================================================ */
+#app-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 24px 16px 32px;
+  text-align: center;
+}
+ 
+#app-footer a {
+  color: var(--text-muted);
+  font-family: 'Sarpanch', sans-serif;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+ 
+#app-footer a:hover {
+  color: var(--accent2);
+  text-decoration: underline;
+}
+ 
+#app-footer .footer-credit {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+/* ============================================================
    RESPONSIVO
    ============================================================ */
 @media (max-width: 600px) {
